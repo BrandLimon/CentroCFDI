@@ -1,0 +1,133 @@
+﻿@model API.Operaciones.OperacionesProveedores.ConfiguracionesDR
+
+@{ ViewBag.Title = "Editar Configuraciones"; }
+
+<div class="card card-flush py-4">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="title">@ViewBag.Title Sucursal</h3>
+        </div>
+    </div>
+
+    <div class="card-body pt-0">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.SucursalId)
+
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                <!-- Primera columna -->
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        @Html.Label("Aprobación de Gastos Obligatoria", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.AprobacionGastosObligatoria, new { @class = "form-check-input", @style = "background-color: @item.AprobacionGastosObligatoria ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.AprobacionGastosObligatoria, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Número de Solicitud de Gastos", new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(model => model.NumeroSolicitudGastos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NumeroSolicitudGastos, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Días Posteriores para Gastos", new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(model => model.DiasPosterioresGastos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DiasPosterioresGastos, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Validación de Documentos Obligatoria", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.ValidacionDocumentosObligatoria, new { @class = "form-check-input", @style = "background-color: @item.ValidacionDocumentosObligatoria ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ValidacionDocumentosObligatoria, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Recibir Facturas del Mes Corriente", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.RecibirFacturasMesCorriente, new { @class = "form-check-input", @style = "background-color: @item.RecibirFacturasMesCorriente ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RecibirFacturasMesCorriente, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Segunda columna -->
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        @Html.Label("Días de Vigencia Expediente Fiscal", new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(model => model.DiasVigenciaExpedienteFiscal, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DiasVigenciaExpedienteFiscal, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Aprobación Comercial Automática", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.AprobacionComercialAutomatica, new { @class = "form-check-input", @style = "background-color: @item.AprobacionComercialAutomatica ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.AprobacionComercialAutomatica, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Aprobación de Pagos Automática", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.AprobacionPagosAutomatica, new { @class = "form-check-input", @style = "background-color: @item.AprobacionPagosAutomatica ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.AprobacionPagosAutomatica, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Referencia de Documentos Recibidos Obligatoria", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.ReferenciaDocumentosRecibidosObligatoria, new { @class = "form-check-input", @style = "background-color: @item.ReferenciaDocumentosRecibidosObligatoria ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ReferenciaDocumentosRecibidosObligatoria, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Recepción CFDI", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.RecepcionCfdi, new { @class = "form-check-input", @style = "background-color: @item.RecepcionCfdi ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RecepcionCfdi, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Recepción de Documentos No Fiscales", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.RecepcionNoFiscales, new { @class = "form-check-input", @style = "background-color: @item.RecepcionNoFiscales ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RecepcionNoFiscales, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-4">
+                        @Html.Label("Recepción de Facturas Extranjeras", new { @class = "form-label fw-bold" })
+                        <div class="form-check form-switch">
+                            @Html.CheckBoxFor(model => model.RecepcionFacturasExtranjeras, new { @class = "form-check-input", @style = "background-color: @item.RecepcionFacturasExtranjeras ? 'green' : 'red';" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RecepcionFacturasExtranjeras, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="separator my-5"></div>
+
+                <div class="d-flex justify-content-end">
+                    <!-- Botón de Cancelar -->
+                    <a href="@Url.Action("Index", "ConfiguracionesRel")" class="btn btn-light me-5">Cancelar</a>
+                    <!-- Botón de Guardar -->
+                    <button type="submit" id="submit" class="btn btn-primary">
+                        <span class="indicator-label">Guardar</span>
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

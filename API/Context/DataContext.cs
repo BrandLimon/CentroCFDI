@@ -102,6 +102,7 @@ namespace API.Context
         public DbSet<CentroCosto> CentrosCostos { get; set; }
         public DbSet<SocioComercial> SociosComerciales { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<ConfiguracionesDR> ConfiguracionesDR { get; set; }
         public DbSet<Grupo> Grupos { get; set; }
         public DbSet<Perfil> Perfiles { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
@@ -109,12 +110,6 @@ namespace API.Context
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Proyecto> Proyectos { get; set; }
         public DbSet<TipoGasto> TipoGastos { get; set; }
-
-        #endregion
-
-        #region Control
-
-        public DbSet<ConfiguracionesDR> ConfiguracionesDR { get; set; }
 
         #endregion
 

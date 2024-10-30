@@ -1,0 +1,121 @@
+﻿@model IEnumerable<API.Operaciones.OperacionesProveedores.ConfiguracionesDR>
+
+@{
+    ViewBag.Title = "Configuraciones";
+}
+
+<div class="card card-flush">
+    <div class="card-header py-5">
+        <div class="row">
+            <div class="card-title">
+                <p style="font-size: 1.2rem; font-weight: bold;">Modifica las configuraciones de la sucursal</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-body pt-0">
+        @if (Model != null && Model.Any())
+        {
+        <form>
+            <div class="row">
+                <!-- Primera columna -->
+                <div class="col-md-6">
+                    @foreach (var item in Model)
+                    {
+                        <div class="form-group mb-4">
+                            @Html.Label("Aprobación de Gastos Obligatoria", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.AprobacionGastosObligatoria, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Número de Solicitud de Gastos", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            @Html.TextBoxFor(m => item.NumeroSolicitudGastos, new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Días Posteriores para Gastos", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            @Html.TextBoxFor(m => item.DiasPosterioresGastos, new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Validación de Documentos Obligatoria", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.ValidacionDocumentosObligatoria, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Recibir Facturas del Mes Corriente", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.RecibirFacturasMesCorriente, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Segunda columna -->
+                <div class="col-md-6">
+                    @foreach (var item in Model)
+                    {
+                        <div class="form-group mb-4">
+                            @Html.Label("Días de Vigencia del Expediente Fiscal", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            @Html.TextBoxFor(m => item.DiasVigenciaExpedienteFiscal, new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Aprobación Comercial Automática", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.AprobacionComercialAutomatica, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Aprobación de Pagos Automática", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.AprobacionPagosAutomatica, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Referencia de Documentos Recibidos Obligatoria", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.ReferenciaDocumentosRecibidosObligatoria, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Recepción CFDI", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.RecepcionCfdi, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Recepción de Documentos No Fiscales", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.RecepcionNoFiscales, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            @Html.Label("Recepción de Facturas Extranjeras", new { @class = "form-label", style = "font-weight: bold; display: block; margin-bottom: 5px;" })
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(m => item.RecepcionFacturasExtranjeras, new { @class = "form-check-input", @disabled = "disabled", style = "pointer-events: none;" })
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="text-end btn-edit" style="margin-top: 20px;">
+                <a href="@Url.Action("Edit", new { id = Model.First().Id })" class="btn btn-primary">Editar</a>
+            </div>
+        </form>
+        }
+        else
+        {
+        <p>No se encontraron configuraciones disponibles.</p> <!-- Mensaje cuando no hay elementos -->
+        }
+    </div>
+</div>
